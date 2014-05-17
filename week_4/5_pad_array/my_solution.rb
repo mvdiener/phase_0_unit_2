@@ -64,7 +64,8 @@ class Array
 	end
 	def pad!(x,y=nil)
 		if x > self.length
-			while x > self.length
+			array_length = self.length
+			while x > array_length
 				self.push(y)
 				x-=1
 			end
