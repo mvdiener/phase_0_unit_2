@@ -1,7 +1,7 @@
 # U2.W5: Die Class 1: Numeric
 
 
-# I worked on this challenge [by myself, with: ].
+# I worked on this challenge by myself.
 
 # 2. Pseudocode
 
@@ -9,20 +9,29 @@
 # Output:
 # Steps:
 
+# create a new class
+# define a method which takes the desired number of sides as a parameter
+# return an error if number of sides is less than 1
+# define a method which displays the number of sides
+# define a method which randomly rolls the die
+
 
 # 3. Initial Solution
 
 class Die
   def initialize(sides)
-    # code goes here
+  	@sides = sides
+  	unless @sides > 0
+    	raise ArgumentError.new("On what planet would that die work?")
+    end
   end
   
   def sides
-    # code goes here
+    return @sides
   end
   
   def roll
-    # code goes here
+    return (1..@sides).to_a.sample
   end
 end
 
@@ -30,6 +39,22 @@ end
 
 # 4. Refactored Solution
 
+class Die
+  def initialize(sides)
+  	@sides = sides
+  	unless @sides > 0
+    	raise ArgumentError.new("On what planet would that die work?")
+    end
+  end
+  
+  def sides
+    return @sides
+  end
+  
+  def roll
+    return  rand(@sides)+1
+  end
+end
 
 
 
@@ -37,7 +62,9 @@ end
 
 # 1. DRIVER TESTS GO BELOW THIS LINE
 
-
+#check if die smaller than 1 side properly return error message
+Die.new(0) rescue $!.message == "On what planet would that die work?"
+Die.new(-1) rescue $!.message == "On what planet would that die work?"
 
 
 
