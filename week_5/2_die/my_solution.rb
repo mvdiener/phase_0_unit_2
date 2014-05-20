@@ -66,9 +66,20 @@ end
 
 #check if die with a non array returns error
 Die.new(4) rescue $!.message == "Please enter an array"
+
+#check if die with an empty array returns error
 Die.new([]) rescue $!.message == "Please enter an array with something ACTUALLY in it"
 
+#check if Die.sides properly returns sides
+sides = (1..rand(100)).to_a
+a = Die.new(sides)
+a.sides == sides.length
 
+#check if Die.roll returns all possible random values
+sides = (1..rand(10000)).to_a
+a = Die.new(sides)
+rolls = Array.new(50000) {a.roll}.uniq.sort
+sides == rolls
 
 
 # 5. Reflection 
