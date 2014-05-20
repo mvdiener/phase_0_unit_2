@@ -52,7 +52,7 @@ class Die
   end
   
   def roll
-    return  rand(@sides)+1
+    return rand(@sides)+1
   end
 end
 
@@ -66,7 +66,17 @@ end
 Die.new(0) rescue $!.message == "On what planet would that die work?"
 Die.new(-1) rescue $!.message == "On what planet would that die work?"
 
+#check if Die.sides properly returns sides
+sides = rand(1000)
+a = Die.new(sides)
+a.sides == sides
 
 
+#check if Die.roll returns all possible random values
+sides = rand(100)
+a = Die.new(sides)
+possible_values = (1..sides).to_a
+rolls = Array.new(50000) {a.roll}.uniq.sort
+possible_values == rolls
 
 # 5. Reflection 
