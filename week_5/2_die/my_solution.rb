@@ -83,3 +83,7 @@ sides == rolls
 
 
 # 5. Reflection 
+# Much like the previous die challenge, I struggled a bit with getting the right raise ArgumentError syntax. All of the
+# double negatives still make my head hurt, especially the "unless @labels != []" line. After that was all sorted out, it
+# was pretty straightforward. The rest of the code was only one line per method. Everything seems to work, but it almost
+# looks like there should be more code. Like I'm forgetting something. But I really do think that's it.
