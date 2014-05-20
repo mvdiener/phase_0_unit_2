@@ -36,15 +36,12 @@ class Die
 end
 
 
-
 # 4. Refactored Solution
 
 class Die
   def initialize(sides)
   	@sides = sides
-  	unless @sides > 0
-    	raise ArgumentError.new("On what planet would that die work?")
-    end
+    raise ArgumentError.new("On what planet would that die work?") unless @sides > 0
   end
   
   def sides
@@ -55,9 +52,6 @@ class Die
     return rand(@sides)+1
   end
 end
-
-
-
 
 
 # 1. DRIVER TESTS GO BELOW THIS LINE
