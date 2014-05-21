@@ -41,13 +41,29 @@ class GuessingGame
 end
 
 
-
-
 # 4. Refactored Solution
 
-
-
-
+class GuessingGame
+  def initialize(answer)
+  	@answer = answer
+  	@solved = false
+    raise ArgumentError.new("Please enter an integer") unless @answer.is_a? Integer
+  end
+  def guess(guess)
+  	@guess = guess
+  	if guess == @answer
+  		@solved = true
+  		return :correct
+  	elsif guess > @answer
+  		return :high
+  	elsif guess < @answer
+  		return :low
+  	end
+  end
+  def solved?
+  	return @solved
+  end
+end
 
 
 # 1. DRIVER TESTS GO BELOW THIS LINE
@@ -77,4 +93,10 @@ game = GuessingGame.new(50)
 game.guess(50)
 game.solved? == true
 
-# 5. Reflection 
+# 5. Reflection
+# This one was pretty straightforward as well, much like the two die challenges. I'm getting better with the ArgumentError
+# bit, practice makes better! I couldn't find much to refactor on this one. I wanted to get rid of all of my if else statements
+# but since they're all pretty specific, I couldn't find a way around it. My .solved? method is pretty simplistic, nothing fancy
+# like in the example. I changed my refactored solution to a better .solved? method, my initial code would only make .solved? 
+# equal to true if you did game.solved? right after you made the right guess. My refactored code sets .solved? to true once you
+# make the right guess, and stays true for every guess after that.
