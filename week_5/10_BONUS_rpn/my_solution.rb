@@ -44,12 +44,9 @@ a = RPNCalculator.new
 a.evaluate("1 1 +") == 2
 a.evaluate("1 -1 +") == 0
 a.evaluate("2 2 *") == 4
-a.evaluate("1 1 +") == 2
-a.evaluate("1 1 +") == 2
-a.evaluate("1 1 +") == 2
-a.evaluate("1 1 +") == 2
-
-
+a.evaluate("1 2 3 4 + + +") == 10
+a.evaluate("1 2 + 3 4 + *") == 21
+a.evaluate("20 10 5 4 + * -") == -70
 
 
 # 5. Reflection 
