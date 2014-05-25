@@ -54,12 +54,15 @@ end
 
 # Refactored Solution
 
+def get_row(board, row_num)
+	return board[row_num]
+end
 
 # DRIVER TESTS GO BELOW THIS LINE
 
 
 # Reflection 
-
+# This seemed far too easy, but I guess it really doesn't need to be more complicated than that, huh?
 
 
 #-------------------------------------------------------------------------------
@@ -74,11 +77,15 @@ def get_col(board, col_num)
 	board.map{|x| x[col_num]}.join
 end
 
-
 # Refactored Solution
 
+def get_col(board, col_num)
+	board.map{|x| x[col_num]}.join
+end
 
 # DRIVER TESTS GO BELOW THIS LINE
 
 
 # Reflection 
+# Slightly more complicated than the get_row method, but still nothing too complex. Still not entirely sure about how the .map
+# method works, I need to do some more reading on that.
